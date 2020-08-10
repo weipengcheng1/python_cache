@@ -42,6 +42,18 @@ class Cache:
         else:
             self.options['path'] = os.path.abspath(RunTime() + os.sep + 'cache') + os.sep
 
+        self.options['cache_subdir'] = options['cache_subdir'] if 'cache_subdir' in options \
+            else Cache.options['cache_subdir']
+        self.options['hash_type'] = options['hash_type'] if 'hash_type' in options \
+            else Cache.options['hash_type']
+        self.options['data_compress'] = options['data_compress'] if 'data_compress' in options \
+            else Cache.options['data_compress']
+        self.options['expire'] = options['expire'] if 'expire' in options \
+            else Cache.options['expire']
+        self.options['prefix'] = options['prefix'] if 'prefix' in options \
+            else Cache.options['prefix']
+        print(self.options)
+
     # 生成缓存文件名与路径
     def getCacheKey(self, name):
         """
@@ -153,6 +165,9 @@ class Cache:
     def has(self, name):
         return True if self.getRaw(name=name) is not None else False
 
-    #获取并删除缓存
-    def pull(self,name):
-        pass
+    # 获取并删除缓存
+    def pull(self, name):
+        result = self.get(name=name)
+        if result:
+            self.delete(name=name)
+            return result
