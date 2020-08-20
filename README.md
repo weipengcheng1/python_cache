@@ -1,7 +1,7 @@
 # python_cache
 基于thinkphp的文件缓存来实现的一种文件缓存，自己来练练手，慢慢的去完善
 
-##文件缓存的使用
+##  文件缓存的使用
 ### 导入包
 ```python
 from  cache import RunTime,FileCache
