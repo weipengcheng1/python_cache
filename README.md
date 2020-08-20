@@ -7,7 +7,7 @@
 from  cache import RunTime,FileCache
 ```
 其中runtime为运行缓存目录，FileCache为文件缓存
-###配置
+### 配置
 ```python
 options = {
         'expire': 0,
@@ -18,7 +18,7 @@ options = {
         'data_compress': False
     }
 ```
-#####options选项配置说明
+##### options选项配置说明
 
 | 字段 | 说明 | 数据类型 |默认值 |
 | ----  |----  |----|----|
@@ -29,13 +29,13 @@ options = {
 | options['hash_type']  | 缓存文件hash方式|str| md5
 | options['data_compress']  | 缓存数据是否压缩 |bool| False
 
-###方法
-####初始化化
+### 方法
+#### 初始化化
 ```python
 cache = cache.Cache([options])
 ```
 其中options是可选自定义配置的，
-####设置缓存
+#### 设置缓存
 ````python
 cache.set(cacheName, cacheValue, expire)
 ````
@@ -48,7 +48,7 @@ cacheValue     为缓存的值
 
 expire         可选，缓存的有效期`
 ````
-####获取缓存
+#### 获取缓存
 ```python
 cache.get(cacheName,default)
 ```
@@ -92,7 +92,7 @@ cacheName      为缓存的名称
 ```python
 from  cache import  RedisCache as redis
 ```
-###配置
+### 配置
 ```python
 options = {
         'host': '127.0.0.1',  # redis连接地址
@@ -104,7 +104,7 @@ options = {
         "decode": True  # 结果数据类型,True为字符串，False为字节
     }
 ```
-#####options选项配置说明
+##### options选项配置说明
 
 | 字段 | 说明 | 数据类型 |默认值 |
 | ----  |----  |----|----|
@@ -116,7 +116,7 @@ options = {
 | options['prefix']  | 缓存前缀 |str| ''
 | options['decode']  | 结果数据类型 |Bool| True
 
-###方法
+### 方法
 #### 初始化
 ```python
 redis = redis.RedisCache([options])
@@ -146,7 +146,7 @@ key      缓存键名
 default  可选，可以设置默认值，默认为None
 ````
 
-####判断缓存是否存在
+#### 判断缓存是否存在
 ```python
 redis.has(key)   #返回值 ：bool
 ```
@@ -154,7 +154,7 @@ redis.has(key)   #返回值 ：bool
 ````markdown
 key      缓存键名
 ````
-####删除缓存
+#### 删除缓存
 ```python
 redis.delete(key)    #返回值 BOOL
 ```
